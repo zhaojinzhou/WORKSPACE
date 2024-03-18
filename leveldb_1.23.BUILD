@@ -18,14 +18,14 @@ load("@bazel_skylib//rules:copy_file.bzl", "copy_file")
 
 copy_file(
     name = "port_config_h",
-    src = "@//bazel/third_party/leveldb:port_config.h",
+    src = "@third_party/bazel/third_party/leveldb:port_config.h",
     out = "port/port_config.h",
     allow_symlink = True,
 )
 
 copy_file(
     name = "port_h",
-    src = "@//bazel/third_party/leveldb:port.h",
+    src = "@third_party/bazel/third_party/leveldb:port.h",
     out = "port/port.h",
     allow_symlink = True,
 )
