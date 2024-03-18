@@ -108,7 +108,7 @@ local_repository(
 )
 http_archive(
     name = "com_github_google_leveldb",  # 2021-02-23T21:51:12Z
-    build_file = "//bazel/third_party/leveldb:leveldb.BUILD",
+    build_file = "@third_party//:leveldb_1.23.BUILD",
     sha256 = "9a37f8a6174f09bd622bc723b55881dc541cd50747cbd08831c2a82d620f6d76",
     strip_prefix = "leveldb-1.23",
     urls = [
@@ -118,7 +118,7 @@ http_archive(
 
 http_archive(
     name = "com_github_google_crc32c",  # 2021-10-05T19:47:30Z
-    build_file = "//bazel/third_party/crc32c:crc32c.BUILD",
+    build_file = "@third_party//:crc32c_1.1.2.BUILD",
     sha256 = "ac07840513072b7fcebda6e821068aa04889018f24e10e46181068fb214d7e56",
     strip_prefix = "crc32c-1.1.2",
     urls = ["https://github.com/google/crc32c/archive/1.1.2.tar.gz"],
@@ -137,7 +137,7 @@ http_archive(
 
 http_archive(
     name = "zlib",  # 2017-01-15T17:57:23Z
-    build_file = "//bazel/third_party/zlib:zlib.BUILD",
+    build_file = "@third_party//:zlib-1.2.11.BUILD",
     sha256 = "629380c90a77b964d896ed37163f5c3a34f6e6d897311f1df2a7016355c45eff",
     strip_prefix = "zlib-1.2.11",
     urls = [
@@ -161,19 +161,6 @@ http_archive(
     strip_prefix = "gflags-46f73f88b18aee341538c0dfc22b1710a6abedef",
     sha256 = "a8263376b409900dd46830e4e34803a170484707327854cc252fc5865275a57d",
     url = "https://github.com/gflags/gflags/archive/46f73f88b18aee341538c0dfc22b1710a6abedef.tar.gz",
-)
-http_archive(
-    name = "com_github_gflags_gflags",
-    strip_prefix = "gflags-46f73f88b18aee341538c0dfc22b1710a6abedef",
-    sha256 = "a8263376b409900dd46830e4e34803a170484707327854cc252fc5865275a57d",
-    url = "https://github.com/gflags/gflags/archive/46f73f88b18aee341538c0dfc22b1710a6abedef.tar.gz",
-)
-http_archive(
-    name = "com_github_google_glog",
-    build_file = "//:glog.BUILD",
-    strip_prefix = "glog-a6a166db069520dbbd653c97c2e5b12e08a8bb26",
-    sha256 = "367324e9ba0458b43583c7d773dc42b327e277353d03d4a9706104e2c15e8db8",
-    url = "https://github.com/google/glog/archive/a6a166db069520dbbd653c97c2e5b12e08a8bb26.tar.gz"
 )
 
 http_archive(
@@ -214,6 +201,10 @@ build_file="//:gperftools.BUILD",
 
 git_repository(
     name = "brpc",
+    repo_mapping = {
+        "@com_github_google_glog": "@glog",
+        "@com_github_gflags_gflags":"@gflags",
+    }, 
     remote = "https://github.com/apache/brpc.git",
     commit= "1d6510aa50075cade5ed539ee09a11a1b8d7f990"
 )
