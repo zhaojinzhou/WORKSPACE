@@ -124,15 +124,11 @@ http_archive(
     urls = ["https://github.com/google/crc32c/archive/1.1.2.tar.gz"],
 )
 
-http_archive(
-    name = "com_github_google_snappy",  # 2017-08-25
-    build_file = "//bazel/third_party/snappy:snappy.BUILD",
-    sha256 = "3dfa02e873ff51a11ee02b9ca391807f0c8ea0529a4924afa645fbf97163f9d4",
-    strip_prefix = "snappy-1.1.7",
-    urls = [
-        "https://storage.googleapis.com/mirror.tensorflow.org/github.com/google/snappy/archive/1.1.7.tar.gz",
-        "https://github.com/google/snappy/archive/1.1.7.tar.gz",
-    ],
+git_repository(
+  name = "com_github_google_snappy",
+  remote = "https://github.com/google/snappy.git",
+  commit = "b02bfa754ebf27921d8da3bd2517eab445b84ff9",  # v1.1.7
+  build_file = "@third_party//:snappy_b02bfa754ebf27921d8da3bd2517eab445b84ff9.BUILD"
 )
 
 http_archive(
@@ -147,7 +143,7 @@ http_archive(
 
 http_archive(
     name = "com_github_madler_zlib",  # 2017-01-15T17:57:23Z
-    build_file = "//bazel/third_party/zlib:zlib.BUILD",
+    build_file = "@third_party//:zlib-1.2.11.BUILD",
     sha256 = "c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1",
     strip_prefix = "zlib-1.2.11",
     urls = [
