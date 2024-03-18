@@ -161,7 +161,7 @@ http_archive(
 
 http_archive(
     name = "glog",
-    build_file = "//:glog.BUILD",
+    build_file = "@third_party//:glog.BUILD",
     strip_prefix = "glog-a6a166db069520dbbd653c97c2e5b12e08a8bb26",
     sha256 = "367324e9ba0458b43583c7d773dc42b327e277353d03d4a9706104e2c15e8db8",
     url = "https://github.com/google/glog/archive/a6a166db069520dbbd653c97c2e5b12e08a8bb26.tar.gz"
