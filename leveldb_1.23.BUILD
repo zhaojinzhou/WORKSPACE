@@ -61,6 +61,7 @@ SOURCES = ["db/builder.cc",
          "util/logging.cc",
          "util/options.cc",
          "util/status.cc",
+         "port/port_posix.cc",
          "port/port_posix_sse.cc",
          "helpers/memenv/memenv.cc",
     ]
@@ -95,3 +96,4 @@ cc_library(
         "//conditions:default": [],
     }),
 )
+
