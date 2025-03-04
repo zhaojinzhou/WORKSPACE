@@ -8,6 +8,8 @@ cc_library(
     hdrs = glob(["*.h"]),
     deps = [
         "@com_github_facebook_rocksdb//:rocksdb",
+            "@com_github_facebookresearch_faiss//:faiss",
+
     ],
   copts = ["-std=c++2a"],
 )
