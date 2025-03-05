@@ -127,3 +127,38 @@ bind(
     name = "openblas",
     actual = "@com_github_xianyi_OpenBLAS//:openblas",
 )
+
+
+
+git_repository(
+        name = "com_github_nelhage_rules_boost",
+        commit = "f2494bf3b9de990889ae05a484e5f0fabf1fbdc9",
+        remote = "https://github.com/nelhage/rules_boost",
+        shallow_since = "1679023729 +0000",
+)
+load("@com_github_nelhage_rules_boost//:boost/boost.bzl", "boost_deps")
+boost_deps()
+
+http_archive(
+    name = "com_github_libevent_libevent",
+    urls = [
+        "https://github.com/libevent/libevent/archive/release-2.1.8-stable.zip"
+    ],
+    sha256 = "70158101eab7ed44fd9cc34e7f247b3cae91a8e4490745d9d6eb7edc184e4d96",
+    strip_prefix = "libevent-release-2.1.8-stable",
+    build_file = "//:libevent.BUILD",
+)
+
+http_archive(
+       name = "com_google_protobuf",
+       sha256 = "4a7e87e4166c358c63342dddcde6312faee06ea9d5bb4e2fa87d3478076f6639",
+       url = "https://github.com/protocolbuffers/protobuf/archive/refs/tags/v21.5.tar.gz",
+       strip_prefix = "protobuf-21.5",
+   )
+
+
+# Protobuf transitive dependencies.
+load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
+protobuf_deps()
+
+
