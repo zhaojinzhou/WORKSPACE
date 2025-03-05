@@ -2,8 +2,12 @@
 #include <vector>
 #include "rocksdb/db.h"
 #include <faiss/IndexFlat.h>
+#include <boost/asio/thread_pool.hpp>
+
 
 int main() {
+    boost::asio::thread_pool pool(10);
+    std::cout <<"213";
     rocksdb::DB* db;
     rocksdb::Options options;
     options.create_if_missing = true;
