@@ -12,7 +12,7 @@ http_archive(
     strip_prefix = "zstd-1.5.7/lib",
     build_file='//:net_zstd.BUILD'
 )
-
+// zstd_1.4.5 bug do not use
 http_archive(
     name = "zstd_1.4.4",
     urls = ["https://github.com/facebook/zstd/releases/download/v1.4.4/zstd-1.4.4.tar.gz"],
