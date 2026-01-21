@@ -20,3 +20,11 @@ http_archive(
     strip_prefix = "zstd-1.4.4/lib",
     build_file='//:net_zstd.BUILD'
 )
+
+http_archive(
+    name = "zstd_1.3.8",
+    urls = ["https://github.com/facebook/zstd/releases/download/v1.3.8/zstd-1.3.8.tar.gz"],
+    sha256 = "293fa004dfacfbe90b42660c474920ff27093e3fb6c99f7b76e6083b21d6d48e",
+    strip_prefix = "zstd-1.3.8/lib",
+    build_file='//:net_zstd.BUILD'
+)
